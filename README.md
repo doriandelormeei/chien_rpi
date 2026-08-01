@@ -12,3 +12,23 @@ About the components:
 -Microphone USB LYMISPIYA
 -LED 2xRed 1xRGB
 
+About the launcher:
+/etc/systemd/system
+sudo nano chien.service
+sudo systemctl enable chien.service
+sudo systemctl start chien.service
+raspi-config - boot - CLI 
+
+[Unit]
+Description=Programme Chien
+After=network.target
+
+[Service]
+ExecStart=/home/dorian/Documents/vvirtual/bin/python3 /home/dorian/Documents/vvirtual/Dobermann/moteur_&_camera.py
+WorkingDirectory=/home/dorian/Documents/vvirtual/Dobermann
+Restart=always
+User=dorian
+
+[Install]
+WantedBy=multi-user.target
+
